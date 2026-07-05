@@ -34,7 +34,7 @@ export default function RidePage() {
   useEffect(() => {
     getAuthToken()
       .then((token) => {
-        if (!token) {
+        if (token) {
           router.push('/signin');
           return;
         }
