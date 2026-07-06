@@ -4,8 +4,8 @@
 
 export const awsConfig = {
   cognito: {
-    userPoolId: 'ap-south-1_FTZZTCww2',
-    userPoolClientId: '23m0m059dcm4fnehiek3hg1jke',
+    userPoolId: 'ap-south-1_Eqn20pTns',
+    userPoolClientId: '77u3ec39bba7ks82oqcug6f505',
     region: 'ap-south-1',
   },
   api: {
