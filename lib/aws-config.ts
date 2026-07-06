@@ -4,12 +4,12 @@
 
 export const awsConfig = {
   cognito: {
-    userPoolId:  process.env.NEXT_PUBLIC_AWS_USER_POOL_ID, // e.g. us-east-2_uXboG5pAb
-    userPoolClientId: process.env.NEXT_PUBLIC_AWS_COGNITO_CLIENT_ID, // e.g. 25ddkmj4v6hfsfvruhpfi7n4hv
-    region: process.env.NEXT_PUBLIC_AWS_REGION, // e.g. us-east-2
+    userPoolId: 'ap-south-1_FTZZTCww2',
+    userPoolClientId: '23m0m059dcm4fnehiek3hg1jke',
+    region: 'ap-south-1',
   },
   api: {
-    invokeUrl: process.env.NEXT_PUBLIC_INVOKE_URL,// e.g. https://rc7nyt4tql.execute-api.us-west-2.amazonaws.com/prod
+    invokeUrl: 'https://c4laijllcg.execute-api.ap-south-1.amazonaws.com/prod',
   },
 } as const;
 
