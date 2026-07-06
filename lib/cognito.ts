@@ -30,8 +30,11 @@ function getPool(): CognitoUserPool | null {
     return null;
   }
   if (!userPool) {
-    userPool = new CognitoUserPool(POOL_DATA);
-  }
+  userPool = new CognitoUserPool({
+    UserPoolId: awsConfig.cognito.userPoolId!,
+    ClientId: awsConfig.cognito.userPoolClientId!,
+  });
+}
   return userPool;
 }
 
