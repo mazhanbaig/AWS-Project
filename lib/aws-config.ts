@@ -9,11 +9,7 @@ export const awsConfig = {
     region: process.env.NEXT_PUBLIC_AWS_REGION, // e.g. us-east-2
   },
   api: {
-    invokeUrl: process.env.INVOKE_URL, // e.g. https://rc7nyt4tql.execute-api.us-west-2.amazonaws.com/prod
+    invokeUrl: process.env.NEXT_PUBLIC_INVOKE_URL,// e.g. https://rc7nyt4tql.execute-api.us-west-2.amazonaws.com/prod
   },
 } as const;
 
-export const POOL_DATA = {
-  UserPoolId: awsConfig.cognito.userPoolId,
-  ClientId: awsConfig.cognito.userPoolClientId,
-};
