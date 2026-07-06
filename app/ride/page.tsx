@@ -38,7 +38,7 @@ export default function RidePage() {
           router.push('/signin');
           return;
         }
-        setAuthToken(token);
+        setAuthToken(token);        
         setTokenReady(true);
       })
       .catch(() => {
@@ -66,6 +66,7 @@ export default function RidePage() {
 
     try {
       const result = await requestUnicorn(pickupLocation, authToken);
+      
       setUnicorn(result.Unicorn);
       setStatus('arriving');
 

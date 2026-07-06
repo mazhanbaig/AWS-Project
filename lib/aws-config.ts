@@ -12,4 +12,3 @@ export const awsConfig = {
     invokeUrl: 'https://c4laijllcg.execute-api.ap-south-1.amazonaws.com/prod',
   },
 } as const;
-
