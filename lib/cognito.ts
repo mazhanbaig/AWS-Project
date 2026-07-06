@@ -5,21 +5,14 @@ import {
   CognitoUser,
   CognitoUserSession,
 } from 'amazon-cognito-identity-js';
-import { awsConfig, POOL_DATA } from './aws-config';
+import { awsConfig } from './aws-config';
 import type { CognitoError } from '@/types';
 
 function toUsername(email: string): string {
   return email.replace('@', '-at-');
 }
 
-function createCognitoUser(email: string): CognitoUser {
-  return new CognitoUser({
-    Username: toUsername(email),
-    Pool: userPool,
-  });
-}
-
-let userPool: CognitoUserPool;
+let userPool: CognitoUserPool | null = null;
 
 function getPool(): CognitoUserPool | null {
   if (
@@ -30,12 +23,23 @@ function getPool(): CognitoUserPool | null {
     return null;
   }
   if (!userPool) {
-  userPool = new CognitoUserPool({
-    UserPoolId: awsConfig.cognito.userPoolId!,
-    ClientId: awsConfig.cognito.userPoolClientId!,
-  });
-}
+    userPool = new CognitoUserPool({
+      UserPoolId: awsConfig.cognito.userPoolId,
+      ClientId: awsConfig.cognito.userPoolClientId,
+    });
+  }
   return userPool;
+}
+
+function createCognitoUser(email: string): CognitoUser {
+  const pool = getPool();
+  if (!pool) {
+    throw new Error('Cognito User Pool is not configured. Check lib/aws-config.ts');
+  }
+  return new CognitoUser({
+    Username: toUsername(email),
+    Pool: pool,
+  });
 }
 
 export function isConfigured(): boolean {
