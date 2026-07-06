@@ -16,13 +16,9 @@
     "react-dom": "^18"
   },
   "devDependencies": {
-    "@aws-amplify/backend": "^1.23.0",
-    "@aws-amplify/backend-cli": "^1.8.3",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "aws-cdk-lib": "^2.244.0",
-    "constructs": "^10.6.0",
     "esbuild": "^0.28.1",
     "eslint": "^8",
     "eslint-config-next": "14.2.35",
